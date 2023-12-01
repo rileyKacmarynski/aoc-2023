@@ -13,6 +13,6 @@
     "noImplicitAny": true /* Enable error reporting for expressions and declarations with an implied 'any' type. */,
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
   },
-  "include": ["./*.ts"],
+  "include": ["./*.ts", "day1/day1.ts"],
   "exclude": ["node_modules"]
 }

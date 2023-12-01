@@ -12,14 +12,15 @@ const numberWords = {
   nine: 9,
 } as const
 
-const input = readFileSync('./day1-input.txt', 'utf-8')
+const input = readFileSync('./day1/day1-input.txt', 'utf-8')
   .split('\n')
   .map((line) =>
     Array.from(line).reduce((numbers, char, index) => {
-      if (!Number.isNaN(Number(char))) {
-        return [numbers[0] ?? Number(char), Number(char)]
+      const maybeNumber = Number(char)
+      if (!Number.isNaN(maybeNumber)) {
+        return [numbers[0] ?? maybeNumber, maybeNumber]
       } else {
-        const word = line.slice(Number(index), line.length + 1)
+        const word = line.slice(index, line.length + 1)
         for (const [key, value] of Object.entries(numberWords)) {
           if (word.indexOf(key) === 0) {
             return [numbers[0] ?? value, value]
